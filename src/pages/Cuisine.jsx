@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from 'styled-components'
 import {motion} from "framer-motion"
-import {Link,useParams} from "react-router-dom"
+import {useParams} from "react-router-dom"
 function Cuisine() {
     const API_KEY ="e96f3a1e87ae4bca84609393a46699ad";
     const [cuisine, setCuisine] = useState([]);
@@ -23,7 +23,7 @@ function Cuisine() {
                     return (
                         <Card key={item.id}>
                             <h4>{item.title}</h4>
-                            <img src={`https://spoonacular.com/recipeImages/${item.id}-312x231.jpg`}/>
+                            <img src={`https://spoonacular.com/recipeImages/${item.id}-312x231.jpg`} alt={`${item.title}`}/>
                         </Card>
                     )
                 })}

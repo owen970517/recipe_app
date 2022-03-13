@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import styled from 'styled-components'
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import '@splidejs/splide/dist/css/splide.min.css';
+import { Link } from "react-router-dom";
 function Veget() {
-   
+    const API_KEY ="e96f3a1e87ae4bca84609393a46699ad";
 
     const [ veget , setVeget ] = useState([]);
     useEffect(()=>{
@@ -36,8 +37,10 @@ function Veget() {
                         return (
                             <SplideSlide key={recipe.id}>
                                 <Card>
-                                    <p>{recipe.title}</p>
-                                    <img src={`https://spoonacular.com/recipeImages/${recipe.id}-556x370.jpg`} alt={recipe.title}/>
+                                    <Link to={'/detail/' + recipe.id}>
+                                        <p>{recipe.title}</p>
+                                        <img src={`https://spoonacular.com/recipeImages/${recipe.id}-556x370.jpg`} alt={recipe.title}/>
+                                    </Link>
                                 </Card>
                             </SplideSlide>
                         )

@@ -2,6 +2,8 @@ import React from "react";
 import Home from "./Home";
 import {Route , Routes } from 'react-router-dom'
 import Cuisine from "./Cuisine";
+import Searched from "./Searched";
+import Detail from "./Detail";
 
 function Page() {
     return (
@@ -10,6 +12,8 @@ function Page() {
                 <Routes>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/cuisine/:type" element={<Cuisine/>}/>
+                    <Route path="/searched/:search" element={<Searched/>}/>
+                    <Route path="/detail/:id" element={<Detail/>}/>
                 </Routes>
             </div>
         
