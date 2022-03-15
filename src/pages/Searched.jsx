@@ -10,13 +10,14 @@ function Searched() {
     let params = useParams();
 
     const getFood = async (name) => {
-        const data = await fetch(`https://api.spoonacular.com/food/menuItems/search?apiKey=${API_KEY}&query=${name}&number=10`)
+        const data = await fetch(`https://api.spoonacular.com/food/menuItems/search?apiKey=${API_KEY}&query=${name}&number=9`)
         const kinds = await data.json();
         console.log(kinds.menuItems);
         setFoods(kinds.menuItems);
     }
     useEffect(()=> {
         getFood(params.search);
+        console.log(params.search);
     } , [params.search]);    
     return (
         <Grid>

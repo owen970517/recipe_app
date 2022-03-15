@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from 'styled-components'
-import {motion} from "framer-motion"
-import {useParams} from "react-router-dom"
+import {Link, useParams} from "react-router-dom"
 function Cuisine() {
     const API_KEY ="e96f3a1e87ae4bca84609393a46699ad";
     const [cuisine, setCuisine] = useState([]);
@@ -13,17 +12,19 @@ function Cuisine() {
         setCuisine(recipes.results);
     };
     useEffect(()=> {
-        getCuisine(params.type);
-        console.log(params.type)
-    },[params.type])
+        getCuisine(params.kind);
+        console.log(params.kind)
+    },[params.kind])
 
     return ( 
             <Grid>
                 {cuisine.map((item)=> {
                     return (
                         <Card key={item.id}>
-                            <h4>{item.title}</h4>
-                            <img src={`https://spoonacular.com/recipeImages/${item.id}-312x231.jpg`} alt={`${item.title}`}/>
+                            <Link to={"/detail/" + item.id}>
+                                <h4>{item.title}</h4>
+                                <img src={`https://spoonacular.com/recipeImages/${item.id}-312x231.jpg`} alt={`${item.title}`}/>
+                            </Link>
                         </Card>
                     )
                 })}

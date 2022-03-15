@@ -8,8 +8,7 @@ function Search() {
     const navigate = useNavigate();
     const handleSubmit = (e) => {
         e.preventDefault();
-        navigate('/searched/' + input)
-        
+        navigate('/searched/' + input);
     }
 
     return (
